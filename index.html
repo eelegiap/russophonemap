@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .graypath {
+            fill: #ccc;
+            stroke: #fff;
+            stroke-width: .5px;
+        }
+        .bgpath {
+            fill: rgba(204, 204, 204, 0.492);
+            stroke: rgb(255, 255, 255);
+            stroke-width: .5px;
+        }
+        circle {
+            fill: #fff;
+            fill-opacity: 0.4;
+            stroke: #111;
+        }
+
+        .graypath.active {
+            fill: pink;
+        }
+
+        circle.active {
+            fill: blue;
+        }
+        #map {
+            border: 5px solid rgba(119, 136, 153, 0.535);
+            overflow:hidden
+        }
+    </style>
+    <meta charset="utf-8">
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!-- <script src="https://d3js.org/d3.geo.projection.v2.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Map</h2>
+                <div id="map"></div>
+                <h3>More on the map</h3>
+                <p>
+                    WordsWordsWordsWordsWords. WordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWords.
+                </p>
+                <br><br><br><br>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+<script src="map.js"></script>
