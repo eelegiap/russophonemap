@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 
 <head>
+    <title>Russophone Density</title>
     <style>
         .graypath {
-            fill: #ccc;
+            /* fill: #ccc; */
             stroke: #fff;
             stroke-width: .5px;
+            pointer-events: all;
+            /* z-index: 0; */
         }
+
         .bgpath {
-            fill: rgba(204, 204, 204, 0.492);
-            stroke: rgb(255, 255, 255);
+            /* fill: transparent; */
+            fill: rgba(211, 211, 211, 0.201);
+            stroke: rgba(0, 0, 0, 0.812);
             stroke-width: .5px;
-        }
-        circle {
-            fill: #fff;
-            fill-opacity: 0.4;
-            stroke: #111;
+            pointer-events: none;
+            /* z-index: 1; */
         }
 
-        .graypath.active {
-            fill: pink;
-        }
-
-        circle.active {
-            fill: blue;
-        }
         #map {
             border: 5px solid rgba(119, 136, 153, 0.535);
-            overflow:hidden
+            overflow: hidden
+        }
+
+        div.tooltip {
+            position: absolute;
+            text-align: center;
+            width: auto;
+            height: auto;
+            padding: 4px;
+            font: 14px sans-serif;
+            background: rgb(255, 255, 168);
+            border: .5px solid black;
+            border-radius: 3px;
+            pointer-events: none;
         }
     </style>
     <meta charset="utf-8">
@@ -46,7 +54,13 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+    <!-- d3 color schemes-->
+    <script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script>'
 
+    <!-- d3 format num -->
+    <script src="https://cdn.jsdelivr.net/npm/d3-format@3"></script>
 
 </head>
 
@@ -55,13 +69,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>Map</h2>
+                <h2>Map: Russian Speakers in Post-Soviet Countries</h2>
                 <div id="map"></div>
-                <h3>More on the map</h3>
+                <!-- <h3>More on the map</h3>
                 <p>
                     WordsWordsWordsWordsWords. WordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWords.
                 </p>
-                <br><br><br><br>
+                <br><br><br><br> -->
             </div>
         </div>
     </div>

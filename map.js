@@ -1,5 +1,5 @@
-var width = $( document ).width()-100;
-    height = $( document ).height()-100;
+var width = $(document).width() - 100;
+height = $(document).height() - 100;
 
 var svg = d3.select("#map").append("svg")
     .attr("width", width)
@@ -10,18 +10,27 @@ var url = 'admin1_12-3_2.geojson'
 // var url = "http://enjalot.github.io/wwsd/data/world/world-110m.geojson";
 var url2 = "admin0.geojson"
 
-var admin0 = svg.append("svg:g");
-var admin1  = svg.append("svg:g");
+var admin1 = svg.append("svg:g");
+var admin0 = svg.append("svg:g")
 
 var projection = d3.geoMercator()
-.scale([800])
-// .center([5246215,7377071])
-.translate([width/2-800, height/2+800]);
+    .scale([800])
+    // .center([5246215,7377071])
+    .translate([width / 2 - 800, height / 2 + 800]);
 
 var path = d3.geoPath()
-.projection(projection)
+    .projection(projection)
+
+var pct = d3.format(",.1%")
+// d3.interpolateReds()
+
+// Define the div for the tooltip
+var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
 
+    
 d3.json(url, function (error, admin1data) {
 
     if (error) console.log(error);
@@ -32,51 +41,51 @@ d3.json(url, function (error, admin1data) {
         .data(admin1data.features)
         .enter().append("path")
         .attr("d", path)
-        .attr('class','graypath')
+        .attr('class', 'graypath')
+        .style('fill', d => d3.interpolateReds(d.properties["post-Soviet-attr-table_pct russian speakers"]))
         .on("mouseover", function (d) {
-            console.log("just had a mouseover", d3.select(d));
+            // console.log("just had a mouseover", d.properties);
             d3.select(this)
-                .classed("active", true)
-                console.log(d.properties["post-Soviet-attr-table_pct russian speakers"])
+                .style('fill','lightblue')
+            // d3.select(this)
+                // .classed("active", true)
+            // console.log(d.properties["post-Soviet-attr-table_pct russian speakers"])
+            div.transition()
+                .duration(200)
+                .style("opacity", .9);
+            div.html(`<b>Name</b>: ${d.properties.name}<br>
+            <b>Country</b>: ${d.properties.admin}<br>
+            <b>% Native Russophone</b>: ${pct(d.properties["post-Soviet-attr-table_pct russian speakers"])}`)
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
         })
         .on("mouseout", function (d) {
             d3.select(this)
-                .classed("active", false)
+            .style('fill', d => d3.interpolateReds(d.properties["post-Soviet-attr-table_pct russian speakers"]))
+            // d3.select(this)
+            //     .classed("active", false)
+            div.transition()
+                .duration(500)
+                .style("opacity", 0);
         })
 
-    // svg.selectAll("circle")
-    //     .data(places.features)
-    //     .enter().append("circle")
-    //     .attr('r', 5)
-    //     .attr('cx', function (d) { return projection(d.geometry.coordinates)[0] })
-    //     .attr('cy', function (d) { return projection(d.geometry.coordinates)[1] })
-    //     .on("mouseover", function (d) {
-    //         console.log("just had a mouseover", d3.select(d));
-    //         d3.select(this)
-    //             .classed("active", true)
-    //     })
-    //     .on("mouseout", function (d) {
-    //         d3.select(this)
-    //             .classed("active", false)
-    //     })
-
-    })
-    d3.json(url2, function (error, admin0data) {
+})
+d3.json(url2, function (error, admin0data) {
 
     admin0.selectAll("path")
-    .data(admin0data.features)
-    .enter().insert("path")
-    .attr("d", path)
-    .attr('class','bgpath')
-
+        .data(admin0data.features)
+        .enter().insert("path")
+        .attr("d", path)
+        .attr('class', 'bgpath')
+        
 });
 
 var zoom = d3.zoom()
-.scaleExtent([1, 8])
-.on('zoom', function() {
-    svg.selectAll('path')
-     .attr('transform', d3.event.transform);
-});
+    .scaleExtent([1, 8])
+    .on('zoom', function () {
+        svg.selectAll('path')
+            .attr('transform', d3.event.transform);
+    });
 
 svg.call(zoom);
 
