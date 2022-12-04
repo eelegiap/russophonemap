@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Russophone Density</title>
+    <style>
+        .graypath {
+            /* fill: #ccc; */
+            stroke: #fff;
+            stroke-width: .5px;
+            pointer-events: all;
+            /* z-index: 0; */
+        }
+
+        .bgpath {
+            /* fill: transparent; */
+            fill: rgba(211, 211, 211, 0.201);
+            stroke: rgba(0, 0, 0, 0.812);
+            stroke-width: .5px;
+            pointer-events: none;
+            /* z-index: 1; */
+        }
+
+        #map {
+            border: 5px solid rgba(119, 136, 153, 0.535);
+            overflow: hidden
+        }
+
+        div.tooltip {
+            position: absolute;
+            text-align: center;
+            width: auto;
+            height: auto;
+            padding: 4px;
+            font: 14px sans-serif;
+            background: rgb(255, 255, 168);
+            border: .5px solid black;
+            border-radius: 3px;
+            pointer-events: none;
+        }
+    </style>
+    <meta charset="utf-8">
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!-- <script src="https://d3js.org/d3.geo.projection.v2.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- d3 color schemes-->
+    <script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script>'
+
+    <!-- d3 format num -->
+    <script src="https://cdn.jsdelivr.net/npm/d3-format@3"></script>
+
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Map: Russian Speakers in Post-Soviet Countries</h2>
+                <div id="map"></div>
+                <!-- <h3>More on the map</h3>
+                <p>
+                    WordsWordsWordsWordsWords. WordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWords.
+                </p>
+                <br><br><br><br> -->
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+<script src="map0.js"></script>

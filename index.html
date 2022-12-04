@@ -1,28 +1,47 @@
-<!DOCTYPE html>
+<html>
 
 <head>
-    <title>Russophone Density</title>
     <style>
-        .graypath {
-            /* fill: #ccc; */
-            stroke: #fff;
-            stroke-width: .5px;
-            pointer-events: all;
-            /* z-index: 0; */
+        path {
+            stroke: white;
+            stroke-width: 0.5px;
+            fill: #EBEBE0;
         }
 
-        .bgpath {
-            /* fill: transparent; */
+        #float-button-group {
+            position: fixed;
+            left: 10;
+            opacity: 0.5;
+        }
+
+        #float-button-group:hover {
+            opacity: 1;
+        }
+
+        #map {
+            /* background: skyblue;  */
+            /* width: 965px;
+            height: 505px; */
+            /* border: 3px solid steelblue; */
+        }
+
+        #map-zoomer {
+            position: absolute;
+            writing-mode: bt-lr;
+            -webkit-appearance: slider-vertical;
+            width: 8px;
+            height: 100px;
+            padding: 0 5px;
+            position: absolute;
+            top: 400px;
+            left: 22px;
+        }
+
+        .backgroundPath {
             fill: rgba(211, 211, 211, 0.201);
             stroke: rgba(0, 0, 0, 0.812);
             stroke-width: .5px;
             pointer-events: none;
-            /* z-index: 1; */
-        }
-
-        #map {
-            border: 5px solid rgba(119, 136, 153, 0.535);
-            overflow: hidden
         }
 
         div.tooltip {
@@ -37,50 +56,54 @@
             border-radius: 3px;
             pointer-events: none;
         }
+        #headerSection {
+            padding: 25px
+        }
     </style>
-    <meta charset="utf-8">
 
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <!-- <script src="https://d3js.org/d3.geo.projection.v2.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
-    <script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<body>
+    <div id="headerSection">
+        <h2><a href="about.html">Map: Russian Language Speakers in Post-Soviet Countries</a></h2>
+        <p><b>Paige Lee, GENED 1140, December 2022</b></p>
+        <p>
+            The map below shows the proportion of the population in the region (typically a state or province) who are native
+            Russian speakers (Russophones). The countries with data include Estonia, Latvia, Lithuania, Belarus,
+            Ukraine, Moldova, Armenia, Georgia, and Kazakhstan. There were not sufficient data sources for 
+            Turkmenistan, Tajikistan, Uzbekistan, and Azerbaijan.
+        </p>
+    </div>
+    <div id="map">
+        <div class="btn-group-vertical" role="group" aria-label="..." id="float-button-group">
+            <button type="button" class="btn btn-default" id="zoom-in"><span class="glyphicon glyphicon-zoom-in"
+                    aria-hidden="true"></span></button>
+            <button type="button" class="btn btn-default" id="zoom-out"><span class="glyphicon glyphicon-zoom-out"
+                    aria-hidden="true"></span></button>
+            <button type="button" class="btn btn-default" id="reset"><span class="glyphicon glyphicon-screenshot"
+                    aria-hidden="true"></span></button>
+        </div>
+        <input type="range" value="1" min="1" max="8" orient="vertical" id="map-zoomer" />
+    </div>
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/topojson.v0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 
     <!-- d3 color schemes-->
     <script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
     <script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
-    <script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script>'
+    <script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script>
 
     <!-- d3 format num -->
     <script src="https://cdn.jsdelivr.net/npm/d3-format@3"></script>
 
-</head>
-
-
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Map: Russian Speakers in Post-Soviet Countries</h2>
-                <div id="map"></div>
-                <!-- <h3>More on the map</h3>
-                <p>
-                    WordsWordsWordsWordsWords. WordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWordsWords.
-                </p>
-                <br><br><br><br> -->
-            </div>
-        </div>
-    </div>
-
+    <script src="map.js"></script>
 </body>
 
-
-<script src="map.js"></script>
+</html>
