@@ -61,7 +61,12 @@
             padding: 25px
         }
     </style>
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/topojson.v0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 </head>
 
@@ -70,10 +75,15 @@
         <h2><a href="about.html">Map: Russian Language Speakers in Post-Soviet Countries</a></h2>
         <p><b>Paige Lee, GENED 1140, December 2022</b></p>
         <p>
-            The map below shows the proportion of the population in the region (typically a state or province) who are native
-            Russian speakers (Russophones). The countries with data include Estonia, Latvia, Lithuania, Belarus,
-            Ukraine, Moldova, Armenia, Georgia, and Kazakhstan. There were not sufficient data sources for 
-            Turkmenistan, Tajikistan, Uzbekistan, and Azerbaijan.
+            The map below shows the proportion of the population in a region who are native
+            Russian speakers. In most cases, this data refers to people whose mother tongue is Russian or
+            the language they speak at home is Russian. 
+            In select instances, I had to default to the proportion of people identifying as ethnic Russian.
+            The countries with data include Estonia, Latvia, Lithuania, Belarus,
+            Ukraine, Moldova, Armenia, Georgia, and Kazakhstan (all former republics in the Soviet Union). 
+            It was not possible to find sufficient data sources for Turkmenistan, Tajikistan, Uzbekistan, and Azerbaijan. 
+            All of the data is from 2001 to 2014, and sources are on the about page. 
+            <a href="about.html">Click here or the header to read more details about the project.</a>
         </p>
     </div>
     <div id="map">
@@ -89,12 +99,7 @@
     </div>
 
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="http://d3js.org/topojson.v0.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 
 
     <!-- d3 color schemes-->
@@ -104,6 +109,9 @@
 
     <!-- d3 format num -->
     <script src="https://cdn.jsdelivr.net/npm/d3-format@3"></script>
+
+    <!-- d3 legend -->
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.13.0/d3-legend.min.js"></script>
 
     <script src="map.js"></script>
 

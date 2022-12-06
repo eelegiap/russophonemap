@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 
 <head>
-       <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <style>
         #headerSection {
             padding: 25px
         }
+        #aboutBody {
+            padding-right: 350px
+        }
     </style>
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/topojson.v0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 </head>
 
@@ -15,30 +24,130 @@
     <div id="headerSection">
         <h2><a href="index.html">Map: Russian Language Speakers in Post-Soviet Countries</a></h2>
         <p><b>Paige Lee, GENED 1140, December 2022</b></p>
-        <h2>About the Project</h2>
-        <h3>Historical Context</h3>
-        <p>
-            In this map, I am interested in mapping Russian language use over the former republics of the Union of Soviet Socialist Republics (1922-1991). 
-            The former Soviet republics include Estonia, Latvia, Lithuania, Belarus, Russia,
-            Ukraine, Moldova, Armenia, Georgia, Kazakhstan, Turkmenistan, Tajikistan, Uzbekistan, and Azerbaijan.
-            Although Russian was not an "official state language", it served as the language of 
-            interethnic communication (Russian: язык межнационального общения) in the USSR. 
+        <div id="aboutBody">
+            <h2>About the Project</h2>
+            <h3>Historical Context</h3>
+            <p>
+                In this map, I am interested in mapping Russian language use over the former republics of the Union of
+                Soviet Socialist Republics (1922-1991).
+                The former Soviet republics include Estonia, Latvia, Lithuania, Belarus, Russia,
+                Ukraine, Moldova, Armenia, Georgia, Kazakhstan, Turkmenistan, Tajikistan, Uzbekistan, and Azerbaijan.
+                The USSR was a multilingual state and 130 languages were spoken natively. <a href="#footnote-1">[1]</a>
+                Russian, however, was the dominant language and the language of the center.
+                Although Russian was not an "official state language", it served as the language of
+                interethnic communication (Russian: язык межнационального общения) in the USSR.
+                Russian enjoyed varying statuses of importance in the USSR. In the early years of the Soviet Union, the
+                main language policy was <i>Korenizatsiya</i> (meaning "nativization" or "indigenization", literally
+                "root-ification" in Russian).
+                As part of early Soviet nationalities policies in the 1920s, <i>Korenizatsiya</i> allowed more freedom
+                for the republics to exercise more cultural sovereignty. 
+                In 1922, it was decreed that all nationalities in the Soviet Union had the right to education in their own language.
+                In the 1930s, Joseph Stalin mostly reversed the
+                <i>Korenizatsiya</i> policy by reducing its practical effects and introducing de facto Russification.
+                At this time, the center began to promote Russian more as the "language of interethnic communication."
+                There was relative freedom to language, but the Communist Party was concerned about the possible links 
+                between regional language freedom and nationalist tendencies in the republics. For this reason, education 
+                and other cultural practices were sometimes restricted in regional languages. 
+            </p>
+            <h3>Modern Relevance</h3>
+            <p>
+                Following the dissolution of the USSR in 1991, post-Soviet countries underwent processes of 
+                de-communization and de-Russification to different extents. Newer school curriculums began to 
+                emphasize English as a foreign language rather than Russian. Russian remained an important language
+                in countries such as Belarus and Ukraine, most likely because Belarusian, Ukrainian, and Russian are 
+                closely related languages in the East Slavic language tree (and the only three languages in the eastern branch). 
+                There are a high proportion of Russian speakers particularly in eastern and southern Ukraine, 
+                and the "language issue" became a topic of contested political debate. 
+                In this instance, the "language issue" refers to the question of the obligation of the Russian state 
+                to protect or reclaim Russian language speakers in Ukraine.
+                The debate gained heightened significance following the
+                Euromaidan Revolution in Ukraine in 2014, the resulting Russian annexation of Crimea, and the beginning 
+                of the Russo-Ukrainian War in the Donbas region of Ukraine. 
+                Vladimir Putin uses the language issue as a pretense for Russia's involvement in Ukraine. 
+                In an unsavory article posted to the Kremlin’s website in July 2021, Putin wrote about how 
+                language similarities underlie the unity of the Russian and Ukrainian peoples. 
+                He blames language policies in Ukraine as a pretext for conflict: 
+                “All the things that united us and bring us together so far came under attack. 
+                First and foremost, the Russian language.” <a href="#footnote-2">[2]</a>
+            </p>
+            <h3>Map Analysis</h3>
+            <p>
+                In this section, I argue that Vladimir Putin's violation of the border between Russia and Ukraine
+                is not justifiable by the "language issue."
+            </p>
+            <p>
+                Vladimir Putin's statements about the necessity of protecting Russian speakers in Ukraine made me wonder 
+                if the Russian language situation in Ukraine is unique among post-Soviet countries. To look at this,
+                I created a map detailing the percentage of native Russian language speakers inside post-Soviet countries. 
+                The data is largely drawn from country census data. Because the Soviet Union no longer has a legal status, 
+                there is no centralized place to find data about every post-Soviet country. So, the data comes from a range of 
+                census time periods, from 2001 to 2014. 
+            </p>
+            <p>
+                A summary of findings from the map: Ukraine stands out on the map as having several provinces with
+                high proportion of Russian speakers. Russian is also generally widespread in Belarus and Kazakhstan, 
+                but not with as dense proportions as in Ukraine. Small but concentrated areas of Russian speakers exist 
+                in specific regions in the Baltic countries (73% in Ida Viru, Estonia; 88.9% in Daugavpils, Latvia). 
+                Low proportions (often less than one percent) of Russian speakers are found in Georgia and Armenia. 
+                The region of the Caucasus with the highest proportion of Russian speakers is Abkhazia (9.1%), a 
+                partially recognized state and formerly a region of Georgia. Russian peacekeeping forces entered Abkhazia in 
+                2008 after violence erupted between Abkhazians and Georgians. Since 2008, the Parliament of Georgia 
+                has declared Abkhazia a Russian-occupied territory.
+            </p>
+            <p>
+                The extent of Russian language speakers does not determine diplomatic alliance. When it comes to 
+                supranational organizations and collective security, the post-Soviet countries are not uniform.
+                Out of the post-Soviet countries, Estonia, Latvia, and Lithuania are part of NATO, while 
+                Armenia, Belarus, Kazakhstan, Kyrgyzstan, and Tajikistan (and Russia) are part of the 
+                Collective Security Treaty Organization (CSTO), an intergovernmental military association in Eurasia. 
+                Meanwhile, Georgia held a nonbinding referendum in 2008 where 77% of voters supported NATO accession.
+                Within the Baltic states, there are wide differences in Russian language use. Within the CSTO,
+                a country like Kazakhstan has more native Russian speakers than Armenia. Armenia and Georgia seem 
+                to have similar levels of native Russian speakers, but they have different supranational 
+                military preferences. <a href="#footnote-3">[3]</a>
+                In short, the presence or absence of Russian language speakers does 
+                not determine a country's politcal and military affiliation in the post-Soviet region.
+            </p>
+            <p>
+                In short, I argue that Putin's argument about protecting native Russian speakers in Ukraine is weak 
+                because Russian language use is not a reliable indicator of a country's supranational affiliation in 
+                the post-Soviet region. His justification for violating Ukraine's borders from 2014 to 2022 (and ongoing)
+                are not well-backed up by the presence of Russian language speakers outside of Russia.
+                Indeed, there are several regions in the Baltic states where provinces have 
+                higher levels of native Russian speakers than in regions in Ukraine, and the Baltic states 
+                are all part of NATO. Russian language, therefore, is not a determiner of a country's affiliation with 
+                the Russian state. Marco Puleri, a anthropology scholar of Ukrainian studies, has written extensively on how 
+                Russian has evolved into a world language, one that doesn't obligate its speakers to a certain 
+                country or government. <a href="#footnote-4">[4]</a> Looking at the map, multilingualism is 
+                a feature of several countries of the post-Soviet region. In the case of Russian,
+                multilingualism is often associated with imperial and Soviet times. Going forward, multilingualism may play 
+                a different, democracy-building role in post-Soviet countries. In particular, the idea of a country based 
+                on a nation of ethnic or linguistic homogenity is losing its salience. Other principles such 
+                as democracy, freedoms, and human rights may replace previously unifying features of the nation-state. 
 
-        </p>
-        <h3>Modern Relevance</h3>
-        <p>
-
-        </p>
-        <h3>Sources</h3>
-        <p></p>
+             </p>
+            <h3>Data Sources</h3>
+            <p><b>Estonia ("Ethnic Russians")</b>: <a href="https://andmed.stat.ee/en/stat/rahvastik__rahvastikunaitajad-ja-koosseis__rahvaarv-ja-rahvastiku-koosseis/RV0222U">Census Website - 2014</a></p>
+            <p><b>Latvia ("Language spoken at home - Russian")</b>: <a href="https://data.stat.gov.lv/pxweb/en/OSP_OD/OSP_OD__tautassk__taut__tsk2011/TSG11-07.px/sortedtable/tableViewSorted/">2011 Census Website</a></p>
+            <p><b>Lithuania ("Number of Russians")</b>: <a href="https://tmde.lrv.lt/uploads/tmde/documents/files/41703 Lietuvos_rusai_A5_EN_WEB.pdf?__cf_chl_tk=Kh72bl0E.Hpi5YTTn7NSTAH0wi4GexzQvzQmAQV4sE8-1669662895-0-gaNycGzNCFE">2011 Population and Housing Census</a></p>
+            <p><b>Belarus ("Mother Language - Russian")</b>: <a href="https://belstat.gov.by/en/perepis-naseleniya/perepis-naseleniya-2009-goda/main-demographic-and-social-characteristics-of-population-of-the-republic-of-belarus/population-classified-by-knowledge-of-the-belarusian-and-russian-languages-by-region-and-minsk-city/. ">2009 Census</a></p>
+            <p><b>Ukraine ("Native Language - Russian")</b>: <a href="https://web.archive.org/web/20111217151026/http://2001.ukrcensus.gov.ua/eng/results/general/nationality/">2001 Census</a></p>
+            <p><b>Moldova ("Mother Tongue - Russian"</b>: <a href="https://statistica.gov.md/en/population-and-housing-census-in-2014-122.html">2014 Census</a></p>
+            <p><b>Georgia ("Native Language - Russian"</b>: <a href="https://web.archive.org/web/20160808174125/http://census.ge/files/results/english/20_Population by region%2C by native languages and fluently speak Georgian language.xls">? Census XLSX</a></p>
+            <p><b>Armenia ("Native Language - Russian"</b>: <a href="https://data.humdata.org/dataset/armenia-languages">2011 Census XLSX</a></p>
+            <p><b>Kazakhstan ("Native Language - Russian"</b>: <a href="https://stat.gov.kz/api/getFile/?docId=ESTAT464825">2009 Census PDF</a></p>
+            
+        
+            <h3>Bibliography</h3>
+            <div id="bib">
+                <p id="footnote-1">[1] Comrie, Bernard (1981). The Languages of the Soviet Union. Cambridge University Press.</p>
+                <p id="footnote-2">[2] “Статья Владимира Путина «Об историческом единстве русских и украинцев».”</p>
+                <p id="footnote-3">[3] http://www.civil.ge/eng/category.php?id=90&result=plebiscite</p>
+                <p id="footnote-4">[4] Puleri, Marco. Ukrainian, Russophone,(Other) Russian: Hybrid Identities and Narratives in Post-Soviet Culture and Politics. Peter Lang GmbH, Internationaler Verlag der Wissenschaften, 2020.</p>
+            </div>
+            
+        </div>
     </div>
 
     <br>
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="http://d3js.org/topojson.v0.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </body>
